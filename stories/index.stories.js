@@ -6,23 +6,9 @@ import { linkTo } from '@storybook/addon-links'
 
 import { Button, Welcome } from '@storybook/react/demo'
 import HelloWorld from '../components'
+import Navbar from '../components/navbar'
 
-storiesOf('Welcome', module).add('to Storybook', () => (
-  <Welcome showApp={linkTo('Button')} />
-))
 
-storiesOf('Button', module)
-  .add('with text', () => (
-    <Button onClick={action('clicked')}>Hello Button</Button>
-  ))
- 
+storiesOf('Trello', module)
+.add('Boards Menu', () => <Navbar />)
 
-storiesOf('HelloWorld', module)
-.add('simple component', () => <HelloWorld />)
-.add('with some emoji', () => (
-  <Button onClick={action('clicked')}>
-    <span role='img' aria-label='so cool'>
-      😀 😎 👍 💯
-    </span>
-  </Button>
-))
