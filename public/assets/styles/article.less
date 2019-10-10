@@ -1,0 +1,94 @@
+.header{
+  width: 100%;
+  height: 65px;
+  background-color: black;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-inline: 20px;
+}
+
+.header > h1 {
+  color:white;
+}
+
+.rightButtonContainer {
+  display: flex;
+  justify-content: space-around;
+}
+
+.body {
+  height: 100%;
+  display: flex;
+  // flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: center;
+  // background-color: #f2f2f2
+  padding-inline: 10%;
+  padding-bottom: 10px;
+}
+
+.articleHeader {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  font-size: 25px;
+}
+
+.thumbnail {
+  display: flex;
+  margin-block: 20px;
+  height: 400px;
+  min-height: 300;
+  max-height: 500px;
+  // padding-inline: 10%;
+  background-color: pink
+
+}
+
+.thumbnail > img {
+  flex:1;
+  // padding-inline:100px;
+}
+
+.article {
+  font-style: normal;
+  line-height: 2em;
+  font-weight: 300;
+  font-size: 1.5em;
+  color:#2E3A59;
+}
+
+.cardFooter {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+  height: 20%;
+  align-items: center;
+  padding-inline: 10px;
+  overflow: hidden;
+  padding-bottom: 10px;
+  padding-top: 5px;
+}
+.author {
+  flex:3;
+  display: flex;
+  align-items: center
+}
+// .avatar {
+//   width:100px;
+//   height: 100px;
+// }
+.authorName {
+  margin-left: 10px;
+  font-size: 1em;
+}
+
+.reaction {
+  flex:1;
+  display: flex;
+  // background-color:pink;
+  justify-content: space-around
+}
