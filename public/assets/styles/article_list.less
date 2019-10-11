@@ -21,7 +21,7 @@
   height: 100%;
   display: flex;
   padding: 30px;
-  // flex-wrap: wrap;
+  flex-wrap: wrap;
   // flex-direction: column;
   justify-content: center;
   // background-color: #f2f2f2
@@ -42,11 +42,11 @@
   display: flex;
   flex-direction: row;
   height: 200px;
-  width: 90%;
   margin-inline: 5px;
   margin-top: 30px;
   background-color: #ffffff;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  cursor: pointer;
 }
 
 .articleThumbnail {
@@ -106,6 +106,7 @@
   margin-top: 15px;
   background-color: #ffffff;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  cursor: pointer;
 }
 .popularThumbnail {
   height: 40%;
@@ -130,4 +131,61 @@
   overflow: hidden;
   padding-block: 10px;
   z-index: 1;
+}
+
+@media only screen and (max-width:768px){
+  .bodyContainer {
+    height: 100%;
+    display: flex;
+    padding: 30px;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .listArticle {
+    height: 100%;
+    width: 100%;
+  }
+
+  .popularCard {
+    display: flex;
+    flex-direction: row;
+    height: 200px;
+    margin-inline: 5px;
+    margin-top: 30px;
+    background-color: #ffffff;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    cursor: pointer;
+  }
+  .popularThumbnail {
+    width: 40%;
+  }
+  
+  .popularThumbnail > img {
+    width: 100%;
+    height: 100%;
+  }
+  .popularcardBody {
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+  }
+  .popularcardContent {
+    padding:10px;
+    padding:10px;
+    width: 100%;
+    height: 80%;
+    // background-color: gray;
+    overflow: hidden;
+  }
+  .popularcardFooter {
+    display: flex;
+    justify-content: space-between;
+    height: 20%;
+    align-items: center;
+    padding-inline: 10px;
+    overflow: hidden;
+    padding-bottom: 10px;
+    padding-top: 5px;
+  }
 }

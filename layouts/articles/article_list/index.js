@@ -1,3 +1,4 @@
+import Head from 'next/head'
 import React,{useState,useEffect} from 'react'
 import {Icon,Input, Avatar} from 'antd'
 import '../../../public/assets/styles/article_list.less'
@@ -11,11 +12,11 @@ const property = {
     rightButton : [
       {
         icon:'bell',
-        // onPress: alert('wow')
+        onPress:() => alert('bell')
       },
       {
         icon:'book',
-        // onPress: alert('wow')
+        onPress:() => alert('book')
       }
     ],
 
@@ -88,7 +89,7 @@ const property = {
       title : 'How To Eat Healthy',
       article : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
       description : 'The easiest way to make sure your inter meal nibbling stays on track is to have ....',
-      thumbnail : 'https://c.ndtvimg.com/k03tb2a_healthy-food_625x300_17_August_18.jpg',
+      thumbnail : 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTI_47vDtqXmFZIhTPRuOZldZb7PZaiLxX1oicrK5xChzE-2fjt',
       author_name : 'Alexa Tenorio',
       author_avatar : 'https://www.arageek.com/wp-content/uploads/2017/09/Selena-Gomez-1.jpg',
       createdAt : 'Today 12:15 pm',
@@ -100,7 +101,7 @@ const property = {
       title : 'How To Eat Healthy',
       article : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
       description : 'The easiest way to make sure your inter meal nibbling stays on track is to have ....',
-      thumbnail : 'https://c.ndtvimg.com/k03tb2a_healthy-food_625x300_17_August_18.jpg',
+      thumbnail : 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQM-YTmNT9mvn3XgdBaj57mcuaKN7Je9Ps_PmSSHPNp43WBNsYL',
       author_name : 'Alexa Tenorio',
       author_avatar : 'https://www.arageek.com/wp-content/uploads/2017/09/Selena-Gomez-1.jpg',
       createdAt : 'Today 12:15 pm',
@@ -118,6 +119,9 @@ function ArticleList(props){
         
     
     <React.Fragment>
+      <Head>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+      </Head>
 
       {/* Header */}
       {
@@ -139,7 +143,7 @@ function ArticleList(props){
                         className="rightButton"
                         type={`${button.icon}`}
                         style={{color:'white',fontSize:25,marginRight:20}} key={i}
-                        onClick={() => alert('test')}
+                        onClick={button.onPress}
                       />
                     
                   ))

@@ -21,6 +21,7 @@
     "null-loader": "^3.0.0",
     "react": "^16.7.0",
     "react-dom": "^16.7.0",
+    "react-markdown": "^4.2.2",
     "react-scripts": "^3.2.0"
   },
   "license": "ISC",

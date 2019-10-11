@@ -32,5 +32,9 @@ module.exports = {
             }
             
         ]
-    }
+    },
+    resolve: {
+        mainFields: ['browser', 'module', 'main'],
+        modules: ['node_modules']
+      }
 };
