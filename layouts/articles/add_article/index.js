@@ -6,77 +6,63 @@ const ReactMarkdown = require('react-markdown')
 // cheatsheet
 // https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet#images
 
-const property = {
-  header:{
-    isVisible: false,
-    search : true,
-    backgroundColor:'black',
-    color:'white',
-    rightButton : [
-      {
-        icon:'bell',
-        // onPress: alert('wow')
-      },
-      {
-        icon:'book',
-        // onPress: alert('wow')
-      }
-    ],
-
-    avatar : "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQbuNeEW2lfBZXzwIJmjrIKuAyr06I_g1pdeBVYZTVFQYXtLaxY", 
-  },
-
-}
 
 
 export default function AddArticle(props){
 
   
-  const [title, setTitle ] = useState('')
-  const [article, setArticle ] = useState('')
-  const [preview, setPreview ] = useState(false)
+  const [title, setTitle ] = useState(props.defaultTitle)
+  const [article, setArticle ] = useState(props.defaultValue)
+  
 
   return (
     <React.Fragment className="root">
-      <nav className="header" style={{backgroundColor:property.header.backgroundColor}}>
-        <h1 style={{color:property.header.color}}> Add article </h1>
-        
-        <div className="rightButtonContainer">
-          {
-            property.header.search ? ( <Input.Search style={{width: '50%'}}/> ) : null
-          }
+      {
+        props.topNavigation.isVisible == true ? (
 
-          <span>
-            {
-              property.header.rightButton.map((button,i) => (
-                
-                  <Icon
-                    className="rightButton"
-                    type={`${button.icon}`}
-                    style={{color:property.header.color,fontSize:25,marginRight:20}} key={i}
-                    onClick={() => setPreview(!preview)}
-                  />
-                
-              ))
-            }  
+          <nav className="header">
+            <h1> {props.topNavigation.title} </h1>
             
-          </span>
+            <div className="rightButtonContainer">
+              {
+                props.topNavigation.search ? ( <Input.Search style={{width: '50%'}}/> ) : null
+              }
 
-            {
-              property.header.avatar ? ( <Avatar src={property.header.avatar} />) : (<Avatar icon="user" />)
-            }
-          
-        </div>
-      </nav>
+              <span>
+                {
+                  Array.isArray(props.topNavigation.rightButton) && props.topNavigation.rightButton.map((button,i) => (
+                    
+                      <Icon
+                        className="rightButton"
+                        type={`${button.icon}`}
+                        style={{color:'white',fontSize:25,marginRight:20}} key={i}
+                        onClick={button.onPress}
+                      />
+                    
+                  )) || null
+                }  
+                
+              </span>
+
+                {
+                  props.topNavigation.avatar ? ( <Avatar onClick={() => setPr} src={props.topNavigation.avatar} />) : null
+                }
+              
+            </div>
+            
+          </nav>
+
+        ) : null
+      }
 
       <div className="bodyContainer">
 
       {
-        preview ? (<div className="previewBody"><ReactMarkdown className="article" escapeHtml={false} source={article}></ReactMarkdown></div>) : ( 
+        props.preview ? (<div className="previewBody"><ReactMarkdown className="article" escapeHtml={false} source={article}></ReactMarkdown></div>) : ( 
 
           
             <div className="form">
-              <input onChange={ e => setTitle(e.target.value)} type="text" className="title" placeholder="title"/>
+              <input onChange={ e => setTitle(e.target.value)} value={title} type="text" className="title" placeholder="title"/>
               <textarea onChange={ e => setArticle(e.target.value)} type="text" className="article" value={article} placeholder="write your story"/>
             </div>
               
