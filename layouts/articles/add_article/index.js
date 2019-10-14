@@ -1,6 +1,7 @@
 import React,{useState,useEffect} from 'react'
 import {Input,Icon,Avatar,} from 'antd'
 import '../../../public/assets/styles/add_article.less'
+import TopNavigation from '../../../components/TopNavigation'
 const ReactMarkdown = require('react-markdown')
 
 // cheatsheet
@@ -13,47 +14,25 @@ export default function AddArticle(props){
   
   const [title, setTitle ] = useState(props.defaultTitle)
   const [article, setArticle ] = useState(props.defaultValue)
-  
+    return (
+    <React.Fragment>
 
-  return (
-    <React.Fragment className="root">
       {
-        props.topNavigation.isVisible == true ? (
+        props.topNavigation && (
+          <TopNavigation
+            isVisible={props.topNavigation.isVisible}
+            logo={props.topNavigation.logo}
+            title={props.topNavigation.title}
+            rightButton={props.topNavigation.rightButton}  
+            avatar={props.topNavigation.avatar}
+            search={props.topNavigation.search}
+            color={props.topNavigation.color}
+            backgroundColor={props.topNavigation.backgroundColor}
+          />
 
-          <nav className="header">
-            <h1> {props.topNavigation.title} </h1>
-            
-            <div className="rightButtonContainer">
-              {
-                props.topNavigation.search ? ( <Input.Search style={{width: '50%'}}/> ) : null
-              }
-
-              <span>
-                {
-                  Array.isArray(props.topNavigation.rightButton) && props.topNavigation.rightButton.map((button,i) => (
-                    
-                      <Icon
-                        className="rightButton"
-                        type={`${button.icon}`}
-                        style={{color:'white',fontSize:25,marginRight:20}} key={i}
-                        onClick={button.onPress}
-                      />
-                    
-                  )) || null
-                }  
-                
-              </span>
-
-                {
-                  props.topNavigation.avatar ? ( <Avatar onClick={() => setPr} src={props.topNavigation.avatar} />) : null
-                }
-              
-            </div>
-            
-          </nav>
-
-        ) : null
+        )
       }
+      
 
       <div className="bodyContainer">
 
