@@ -5,30 +5,30 @@ export default function TopNavigation(props){
   return (
     <React.Fragment>
       {
-        props.topNavigation.isVisible == true ? (
+        props.isVisible == true ? (
 
-          <nav className="header">
+          <nav className="header" style={{backgroundColor:props.backgroundColor}}>
             <div className="rightButtonContainer">
               {
-                props.topNavigation.logo ? <Avatar src={props.topNavigation.logo}/> : null
+                props.logo ? <Avatar src={props.logo}/> : null
 
               }
-              <span className="headerTitle">{props.topNavigation.title}</span>
+              <span className="headerTitle" style={{color:props.color}}>{props.title}</span>
             </div>
                         
             <div className="rightButtonContainer">
               {
-                props.topNavigation.search ? ( <Input.Search style={{width: '50%'}}/> ) : null
+                props.search ? ( <Input.Search style={{width: '50%'}}/> ) : null
               }
 
               <span>
                 {
-                  Array.isArray(props.topNavigation.rightButton) && props.topNavigation.rightButton.map((button,i) => (
+                  Array.isArray(props.rightButton) && props.rightButton.map((button,i) => (
                     
                       <Icon
                         className="rightButton"
                         type={`${button.icon}`}
-                        style={{color:'white',fontSize:25,marginRight:20}} key={i}
+                        style={{color:props.color,fontSize:25,marginRight:20}} key={i}
                         onClick={button.onPress}
                       />
                     
@@ -38,7 +38,7 @@ export default function TopNavigation(props){
               </span>
 
                 {
-                  props.topNavigation.avatar ? ( <Avatar src={props.topNavigation.avatar} />) : null
+                  props.avatar ? ( <Avatar src={props.avatar} />) : null
                 }
               
             </div>
